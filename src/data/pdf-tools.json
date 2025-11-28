@@ -1,0 +1,238 @@
+{
+  "tools": [
+    {
+      "id": "pypdf2",
+      "name": "PyPDF2",
+      "description": "Pure Python library for splitting, merging, cropping, and transforming PDF pages. Best for simple text extraction from standard PDFs.",
+      "category": "Open Source",
+      "logo": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=100&h=100&fit=crop",
+      "benchmarks": {
+        "accuracy": 78,
+        "speed": 245,
+        "costPerPage": 0,
+        "fileSize": "Small (< 5MB)",
+        "maintenance": "Active"
+      },
+      "features": [
+        "Text extraction",
+        "Page manipulation",
+        "Metadata extraction",
+        "Password protection"
+      ],
+      "sampleDocument": {
+        "title": "Invoice Sample",
+        "originalText": "INVOICE\n\nBill To: John Doe\n123 Main Street\nNew York, NY 10001\n\nInvoice #: INV-2024-001\nDate: January 15, 2024\nDue Date: February 15, 2024\n\nDescription          Quantity    Unit Price    Total\n-------------------------------------------------------\nWeb Design Services      1       $2,500.00   $2,500.00\nHosting (Annual)         1         $299.00     $299.00\n\nSubtotal: $2,799.00\nTax (8%): $223.92\nTotal Due: $3,022.92",
+        "extractedText": "INVOICE\n\nBill To: John Doe\n123 Main Street\nNew York, NY 10001\n\nInvoice #: INV-2024-001\nDate: January 15, 2024\nDue Date: February 15, 2024\n\nDescription Quantity Unit Price Total\nWeb Design Services 1 $2,500.00 $2,500.00\nHosting (Annual) 1 $299.00 $299.00\n\nSubtotal: $2,799.00\nTax (8%): $223.92\nTotal Due: $3,022.92",
+        "notes": "Good performance on standard text. Some formatting issues with tables."
+      }
+    },
+    {
+      "id": "pdfminer",
+      "name": "PDFMiner.six",
+      "description": "Advanced PDF parser focused on extracting text with layout analysis. Excellent for preserving document structure and handling complex layouts.",
+      "category": "Open Source",
+      "logo": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=100&h=100&fit=crop",
+      "benchmarks": {
+        "accuracy": 89,
+        "speed": 412,
+        "costPerPage": 0,
+        "fileSize": "Medium (5-20MB)",
+        "maintenance": "Active"
+      },
+      "features": [
+        "Layout analysis",
+        "Font information",
+        "Position coordinates",
+        "Advanced text extraction"
+      ],
+      "sampleDocument": {
+        "title": "Invoice Sample",
+        "originalText": "INVOICE\n\nBill To: John Doe\n123 Main Street\nNew York, NY 10001\n\nInvoice #: INV-2024-001\nDate: January 15, 2024\nDue Date: February 15, 2024\n\nDescription          Quantity    Unit Price    Total\n-------------------------------------------------------\nWeb Design Services      1       $2,500.00   $2,500.00\nHosting (Annual)         1         $299.00     $299.00\n\nSubtotal: $2,799.00\nTax (8%): $223.92\nTotal Due: $3,022.92",
+        "extractedText": "INVOICE\n\nBill To: John Doe\n123 Main Street\nNew York, NY 10001\n\nInvoice #: INV-2024-001\nDate: January 15, 2024\nDue Date: February 15, 2024\n\nDescription          Quantity    Unit Price    Total\n-------------------------------------------------------\nWeb Design Services      1       $2,500.00   $2,500.00\nHosting (Annual)         1         $299.00     $299.00\n\nSubtotal: $2,799.00\nTax (8%): $223.92\nTotal Due: $3,022.92",
+        "notes": "Excellent layout preservation. Table formatting maintained correctly."
+      }
+    },
+    {
+      "id": "tesseract",
+      "name": "Tesseract OCR",
+      "description": "Open-source OCR engine for extracting text from scanned documents and images. Supports 100+ languages with high accuracy for printed text.",
+      "category": "OCR",
+      "logo": "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=100&h=100&fit=crop",
+      "benchmarks": {
+        "accuracy": 92,
+        "speed": 1850,
+        "costPerPage": 0,
+        "fileSize": "Large (> 20MB)",
+        "maintenance": "Active"
+      },
+      "features": [
+        "Multi-language support",
+        "Scanned document OCR",
+        "Image preprocessing",
+        "Custom training"
+      ],
+      "sampleDocument": {
+        "title": "Invoice Sample",
+        "originalText": "INVOICE\n\nBill To: John Doe\n123 Main Street\nNew York, NY 10001\n\nInvoice #: INV-2024-001\nDate: January 15, 2024\nDue Date: February 15, 2024\n\nDescription          Quantity    Unit Price    Total\n-------------------------------------------------------\nWeb Design Services      1       $2,500.00   $2,500.00\nHosting (Annual)         1         $299.00     $299.00\n\nSubtotal: $2,799.00\nTax (8%): $223.92\nTotal Due: $3,022.92",
+        "extractedText": "INVOICE\n\nBill To: John Doe\n123 Main Street\nNew York, NY 10001\n\nInvoice #: INV-2024-001\nDate: January 15, 2024\nDue Date: February 15, 2024\n\nDescription Quantity Unit Price Total\nWeb Design Services 1 $2,500.00 $2,500.00\nHosting (Annual) 1 $299.00 $299.00\n\nSubtotal: $2,799.00\nTax (8%): $223.92\nTotal Due: $3,022.92",
+        "notes": "Best for scanned documents. Minor spacing issues with complex layouts."
+      }
+    },
+    {
+      "id": "adobe-services",
+      "name": "Adobe PDF Services",
+      "description": "Enterprise-grade PDF extraction with advanced AI capabilities. Handles complex documents, forms, and scanned images with high accuracy.",
+      "category": "Commercial",
+      "logo": "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=100&h=100&fit=crop",
+      "benchmarks": {
+        "accuracy": 97,
+        "speed": 680,
+        "costPerPage": 0.05,
+        "fileSize": "Any",
+        "maintenance": "Enterprise"
+      },
+      "features": [
+        "AI-powered extraction",
+        "Form recognition",
+        "Table extraction",
+        "Cloud-based API"
+      ],
+      "sampleDocument": {
+        "title": "Invoice Sample",
+        "originalText": "INVOICE\n\nBill To: John Doe\n123 Main Street\nNew York, NY 10001\n\nInvoice #: INV-2024-001\nDate: January 15, 2024\nDue Date: February 15, 2024\n\nDescription          Quantity    Unit Price    Total\n-------------------------------------------------------\nWeb Design Services      1       $2,500.00   $2,500.00\nHosting (Annual)         1         $299.00     $299.00\n\nSubtotal: $2,799.00\nTax (8%): $223.92\nTotal Due: $3,022.92",
+        "extractedText": "INVOICE\n\nBill To: John Doe\n123 Main Street\nNew York, NY 10001\n\nInvoice #: INV-2024-001\nDate: January 15, 2024\nDue Date: February 15, 2024\n\nDescription          Quantity    Unit Price    Total\n-------------------------------------------------------\nWeb Design Services      1       $2,500.00   $2,500.00\nHosting (Annual)         1         $299.00     $299.00\n\nSubtotal: $2,799.00\nTax (8%): $223.92\nTotal Due: $3,022.92",
+        "notes": "Perfect extraction with full structure preservation. Best-in-class accuracy."
+      }
+    },
+    {
+      "id": "textract",
+      "name": "AWS Textract",
+      "description": "Amazon's ML-powered document analysis service. Automatically extracts text, forms, and tables from virtually any document.",
+      "category": "Cloud",
+      "logo": "https://images.unsplash.com/photo-1523474253046-8cd2748b5fd2?w=100&h=100&fit=crop",
+      "benchmarks": {
+        "accuracy": 95,
+        "speed": 520,
+        "costPerPage": 0.015,
+        "fileSize": "Any",
+        "maintenance": "Enterprise"
+      },
+      "features": [
+        "Form data extraction",
+        "Table detection",
+        "Handwriting recognition",
+        "Document analysis"
+      ],
+      "sampleDocument": {
+        "title": "Invoice Sample",
+        "originalText": "INVOICE\n\nBill To: John Doe\n123 Main Street\nNew York, NY 10001\n\nInvoice #: INV-2024-001\nDate: January 15, 2024\nDue Date: February 15, 2024\n\nDescription          Quantity    Unit Price    Total\n-------------------------------------------------------\nWeb Design Services      1       $2,500.00   $2,500.00\nHosting (Annual)         1         $299.00     $299.00\n\nSubtotal: $2,799.00\nTax (8%): $223.92\nTotal Due: $3,022.92",
+        "extractedText": "INVOICE\n\nBill To: John Doe\n123 Main Street\nNew York, NY 10001\n\nInvoice #: INV-2024-001\nDate: January 15, 2024\nDue Date: February 15, 2024\n\nDescription          Quantity    Unit Price    Total\n-------------------------------------------------------\nWeb Design Services      1       $2,500.00   $2,500.00\nHosting (Annual)         1         $299.00     $299.00\n\nSubtotal: $2,799.00\nTax (8%): $223.92\nTotal Due: $3,022.92",
+        "notes": "Excellent overall performance. Strong table and form detection capabilities."
+      }
+    },
+    {
+      "id": "camelot",
+      "name": "Camelot",
+      "description": "Python library specialized in extracting tables from PDFs. Provides both lattice and stream modes for different table types.",
+      "category": "Open Source",
+      "logo": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=100&h=100&fit=crop",
+      "benchmarks": {
+        "accuracy": 85,
+        "speed": 890,
+        "costPerPage": 0,
+        "fileSize": "Small (< 5MB)",
+        "maintenance": "Community"
+      },
+      "features": [
+        "Table extraction",
+        "Export to CSV/Excel",
+        "Visual debugging",
+        "Lattice and stream modes"
+      ],
+      "sampleDocument": {
+        "title": "Invoice Sample",
+        "originalText": "INVOICE\n\nBill To: John Doe\n123 Main Street\nNew York, NY 10001\n\nInvoice #: INV-2024-001\nDate: January 15, 2024\nDue Date: February 15, 2024\n\nDescription          Quantity    Unit Price    Total\n-------------------------------------------------------\nWeb Design Services      1       $2,500.00   $2,500.00\nHosting (Annual)         1         $299.00     $299.00\n\nSubtotal: $2,799.00\nTax (8%): $223.92\nTotal Due: $3,022.92",
+        "extractedText": "Description | Quantity | Unit Price | Total\nWeb Design Services | 1 | $2,500.00 | $2,500.00\nHosting (Annual) | 1 | $299.00 | $299.00\n\nSubtotal: $2,799.00\nTax (8%): $223.92\nTotal Due: $3,022.92",
+        "notes": "Excellent for table extraction. Limited text extraction outside tables."
+      }
+    },
+    {
+      "id": "doctr",
+      "name": "docTR",
+      "description": "Deep learning-based OCR toolkit. State-of-the-art accuracy for document text recognition using neural networks.",
+      "category": "AI/ML",
+      "logo": "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=100&h=100&fit=crop",
+      "benchmarks": {
+        "accuracy": 94,
+        "speed": 1200,
+        "costPerPage": 0,
+        "fileSize": "Large (> 20MB)",
+        "maintenance": "Active"
+      },
+      "features": [
+        "Neural network OCR",
+        "Text detection",
+        "Text recognition",
+        "Pre-trained models"
+      ],
+      "sampleDocument": {
+        "title": "Invoice Sample",
+        "originalText": "INVOICE\n\nBill To: John Doe\n123 Main Street\nNew York, NY 10001\n\nInvoice #: INV-2024-001\nDate: January 15, 2024\nDue Date: February 15, 2024\n\nDescription          Quantity    Unit Price    Total\n-------------------------------------------------------\nWeb Design Services      1       $2,500.00   $2,500.00\nHosting (Annual)         1         $299.00     $299.00\n\nSubtotal: $2,799.00\nTax (8%): $223.92\nTotal Due: $3,022.92",
+        "extractedText": "INVOICE\n\nBill To: John Doe\n123 Main Street\nNew York, NY 10001\n\nInvoice #: INV-2024-001\nDate: January 15, 2024\nDue Date: February 15, 2024\n\nDescription Quantity Unit Price Total\nWeb Design Services 1 $2,500.00 $2,500.00\nHosting (Annual) 1 $299.00 $299.00\n\nSubtotal: $2,799.00\nTax (8%): $223.92\nTotal Due: $3,022.92",
+        "notes": "High accuracy with deep learning. Slower processing time due to ML models."
+      }
+    },
+    {
+      "id": "pdfplumber",
+      "name": "pdfplumber",
+      "description": "Powerful library for detailed PDF information extraction. Excellent for tables, text, and visual debugging of extraction results.",
+      "category": "Open Source",
+      "logo": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=100&h=100&fit=crop",
+      "benchmarks": {
+        "accuracy": 91,
+        "speed": 325,
+        "costPerPage": 0,
+        "fileSize": "Medium (5-20MB)",
+        "maintenance": "Active"
+      },
+      "features": [
+        "Table extraction",
+        "Visual debugging",
+        "Character-level data",
+        "Line and rectangle detection"
+      ],
+      "sampleDocument": {
+        "title": "Invoice Sample",
+        "originalText": "INVOICE\n\nBill To: John Doe\n123 Main Street\nNew York, NY 10001\n\nInvoice #: INV-2024-001\nDate: January 15, 2024\nDue Date: February 15, 2024\n\nDescription          Quantity    Unit Price    Total\n-------------------------------------------------------\nWeb Design Services      1       $2,500.00   $2,500.00\nHosting (Annual)         1         $299.00     $299.00\n\nSubtotal: $2,799.00\nTax (8%): $223.92\nTotal Due: $3,022.92",
+        "extractedText": "INVOICE\n\nBill To: John Doe\n123 Main Street\nNew York, NY 10001\n\nInvoice #: INV-2024-001\nDate: January 15, 2024\nDue Date: February 15, 2024\n\nDescription          Quantity    Unit Price    Total\n-------------------------------------------------------\nWeb Design Services      1       $2,500.00   $2,500.00\nHosting (Annual)         1         $299.00     $299.00\n\nSubtotal: $2,799.00\nTax (8%): $223.92\nTotal Due: $3,022.92",
+        "notes": "Great balance of accuracy and speed. Excellent table detection."
+      }
+    },
+    {
+      "id": "google-vision",
+      "name": "Google Cloud Vision",
+      "description": "Google's powerful vision AI for document text detection. Handles printed and handwritten text with exceptional accuracy.",
+      "category": "Cloud",
+      "logo": "https://images.unsplash.com/photo-1573804633927-bfcbcd909acd?w=100&h=100&fit=crop",
+      "benchmarks": {
+        "accuracy": 96,
+        "speed": 450,
+        "costPerPage": 0.0075,
+        "fileSize": "Any",
+        "maintenance": "Enterprise"
+      },
+      "features": [
+        "Text detection",
+        "Document text detection",
+        "Handwriting OCR",
+        "Multi-language support"
+      ],
+      "sampleDocument": {
+        "title": "Invoice Sample",
+        "originalText": "INVOICE\n\nBill To: John Doe\n123 Main Street\nNew York, NY 10001\n\nInvoice #: INV-2024-001\nDate: January 15, 2024\nDue Date: February 15, 2024\n\nDescription          Quantity    Unit Price    Total\n-------------------------------------------------------\nWeb Design Services      1       $2,500.00   $2,500.00\nHosting (Annual)         1         $299.00     $299.00\n\nSubtotal: $2,799.00\nTax (8%): $223.92\nTotal Due: $3,022.92",
+        "extractedText": "INVOICE\n\nBill To: John Doe\n123 Main Street\nNew York, NY 10001\n\nInvoice #: INV-2024-001\nDate: January 15, 2024\nDue Date: February 15, 2024\n\nDescription          Quantity    Unit Price    Total\n-------------------------------------------------------\nWeb Design Services      1       $2,500.00   $2,500.00\nHosting (Annual)         1         $299.00     $299.00\n\nSubtotal: $2,799.00\nTax (8%): $223.92\nTotal Due: $3,022.92",
+        "notes": "Very high accuracy. Good cost-performance ratio for cloud services."
+      }
+    }
+  ]
+}
