@@ -29,27 +29,26 @@ interface ToolCardProps {
 export default function ToolCard({ tool, isSelected = false, onSelect, selectionMode = false }: ToolCardProps) {
   const router = useRouter()
 
-  const handleCardClick = () => {
-    if (selectionMode && onSelect) {
-      onSelect()
-    } else {
-      router.push(`/tools/${tool.id}`)
-    }
+  const openToolPage = () => {
+    router.push(`/tools/${tool.id}`)
+  }
+
+  const selectTool = () => {
+    onSelect?.()
   }
 
   return (
-    <Card 
-      className={`cursor-pointer transition-all hover:shadow-lg hover:scale-[1.02] ${
-        isSelected ? 'ring-2 ring-primary' : ''
-      }`}
-      onClick={handleCardClick}
+    <Card
+      className={`cursor-pointer transition-all hover:shadow-lg hover:scale-[1.02] ${isSelected ? 'ring-2 ring-primary' : ''
+        }`}
+      onClick={openToolPage}
     >
       <CardHeader>
         <div className="flex items-start justify-between gap-4">
           <div className="flex items-center gap-3 flex-1">
             <div className="relative h-12 w-12 rounded-lg overflow-hidden bg-muted">
-              <Image 
-                src={tool.logo} 
+              <Image
+                src={tool.logo}
                 alt={tool.name}
                 fill
                 className="object-cover"
@@ -69,7 +68,7 @@ export default function ToolCard({ tool, isSelected = false, onSelect, selection
               className="flex-shrink-0"
               onClick={(e) => {
                 e.stopPropagation()
-                onSelect?.()
+                selectTool()
               }}
             >
               {isSelected && <Check className="h-4 w-4" />}
@@ -80,7 +79,7 @@ export default function ToolCard({ tool, isSelected = false, onSelect, selection
           {tool.description}
         </CardDescription>
       </CardHeader>
-      
+
       <CardContent className="space-y-4">
         <div className="space-y-3">
           <div className="space-y-1">
@@ -90,17 +89,17 @@ export default function ToolCard({ tool, isSelected = false, onSelect, selection
             </div>
             <Progress value={tool.benchmarks.accuracy} className="h-2" />
           </div>
-          
+
           <div className="flex justify-between text-sm pt-2 border-t">
             <span className="text-muted-foreground">Speed</span>
             <span className="font-medium">{tool.benchmarks.speed}ms</span>
           </div>
-          
+
           <div className="flex justify-between text-sm">
             <span className="text-muted-foreground">Cost</span>
             <span className="font-medium">
-              {tool.benchmarks.costPerPage === 0 
-                ? "Free" 
+              {tool.benchmarks.costPerPage === 0
+                ? "Free"
                 : `$${tool.benchmarks.costPerPage}/page`
               }
             </span>

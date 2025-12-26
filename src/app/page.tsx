@@ -14,7 +14,7 @@ export default function Home() {
   const [selectedTools, setSelectedTools] = useState<string[]>([])
 
   const filteredTools = useMemo(() => {
-    return toolsData.tools.filter(tool => 
+    return toolsData.tools.filter(tool =>
       tool.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
       tool.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
       tool.category.toLowerCase().includes(searchQuery.toLowerCase())
@@ -46,7 +46,7 @@ export default function Home() {
               PDF Extraction Tools
             </h1>
             <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
-              Compare and explore the best PDF extraction tools. View benchmark stats, 
+              Compare and explore the best PDF extraction tools. View benchmark stats,
               sample extractions, and find the perfect tool for your needs.
             </p>
           </div>
@@ -63,9 +63,11 @@ export default function Home() {
                 className="pl-10"
               />
             </div>
-            
+
             {selectedTools.length > 0 && (
-              <div className="flex items-center justify-between p-4 bg-primary/10 border border-primary/20 rounded-lg">
+              <div className="flex items-center gap-4 justify-between p-4 bg-[#e7e7e7] border rounded-lg fixed bottom-4 md:right-4 z-50
+              backdrop-blur supports-[backdrop-filter]:bg-background/80
+              ">
                 <div>
                   <p className="font-medium">
                     {selectedTools.length} tool{selectedTools.length > 1 ? 's' : ''} selected
@@ -90,8 +92,8 @@ export default function Home() {
           {/* Tools Grid */}
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {filteredTools.map((tool) => (
-              <ToolCard 
-                key={tool.id} 
+              <ToolCard
+                key={tool.id}
                 tool={tool}
                 isSelected={selectedTools.includes(tool.id)}
                 onSelect={() => handleToolSelect(tool.id)}

@@ -15,7 +15,7 @@ export default function ToolDetailPage() {
   const router = useRouter()
   const params = useParams()
   const toolId = params.id as string
-  
+
   const [selectedToolId, setSelectedToolId] = useState(toolId)
   const tool = toolsData.tools.find(t => t.id === selectedToolId)
 
@@ -46,8 +46,8 @@ export default function ToolDetailPage() {
           <div className="flex flex-col md:flex-row gap-6 items-start">
             <div className="flex items-start gap-4 flex-1">
               <div className="relative h-20 w-20 rounded-lg overflow-hidden bg-muted flex-shrink-0">
-                <Image 
-                  src={tool.logo} 
+                <Image
+                  src={tool.logo}
                   alt={tool.name}
                   fill
                   className="object-cover"
@@ -84,120 +84,116 @@ export default function ToolDetailPage() {
           </div>
 
           {/* Tabs for Details */}
-          <Tabs defaultValue="benchmarks" className="w-full">
-            <TabsList className="grid w-full grid-cols-3">
-              <TabsTrigger value="benchmarks">Benchmarks</TabsTrigger>
-              <TabsTrigger value="sample">Sample Extraction</TabsTrigger>
-              <TabsTrigger value="features">Features</TabsTrigger>
-            </TabsList>
+          <div className="mt-6">
+            <div className="space-y-6 grid grid-cols-1 md:grid-cols-4 gap-4">
+              <div className="col-span-1 md:col-span-3 flex flex-col gap-3">
+                <h1 className="text-2xl font-bold">Metrics</h1>
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                  <Card>
+                    <CardHeader className="pb-3">
+                      <CardTitle className="text-sm font-medium flex items-center gap-2">
+                        <Gauge className="h-4 w-4 text-primary" />
+                        Accuracy
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="text-2xl font-bold">{tool.benchmarks.accuracy}%</div>
+                      <Progress value={tool.benchmarks.accuracy} className="mt-2 h-2" />
+                    </CardContent>
+                  </Card>
 
-            <TabsContent value="benchmarks" className="space-y-4 mt-6">
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                <Card>
-                  <CardHeader className="pb-3">
-                    <CardTitle className="text-sm font-medium flex items-center gap-2">
-                      <Gauge className="h-4 w-4 text-primary" />
-                      Accuracy
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="text-2xl font-bold">{tool.benchmarks.accuracy}%</div>
-                    <Progress value={tool.benchmarks.accuracy} className="mt-2 h-2" />
-                  </CardContent>
-                </Card>
+                  <Card>
+                    <CardHeader className="pb-3">
+                      <CardTitle className="text-sm font-medium flex items-center gap-2">
+                        <Clock className="h-4 w-4 text-primary" />
+                        Processing Speed
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="text-2xl font-bold">{tool.benchmarks.speed}ms</div>
+                      <p className="text-xs text-muted-foreground mt-1">per page average</p>
+                    </CardContent>
+                  </Card>
 
-                <Card>
-                  <CardHeader className="pb-3">
-                    <CardTitle className="text-sm font-medium flex items-center gap-2">
-                      <Clock className="h-4 w-4 text-primary" />
-                      Processing Speed
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="text-2xl font-bold">{tool.benchmarks.speed}ms</div>
-                    <p className="text-xs text-muted-foreground mt-1">per page average</p>
-                  </CardContent>
-                </Card>
+                  <Card>
+                    <CardHeader className="pb-3">
+                      <CardTitle className="text-sm font-medium flex items-center gap-2">
+                        <DollarSign className="h-4 w-4 text-primary" />
+                        Cost Per Page
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="text-2xl font-bold">
+                        {tool.benchmarks.costPerPage === 0
+                          ? "Free"
+                          : `$${tool.benchmarks.costPerPage}`
+                        }
+                      </div>
+                      <p className="text-xs text-muted-foreground mt-1">operational cost</p>
+                    </CardContent>
+                  </Card>
 
-                <Card>
-                  <CardHeader className="pb-3">
-                    <CardTitle className="text-sm font-medium flex items-center gap-2">
-                      <DollarSign className="h-4 w-4 text-primary" />
-                      Cost Per Page
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="text-2xl font-bold">
-                      {tool.benchmarks.costPerPage === 0 
-                        ? "Free" 
-                        : `$${tool.benchmarks.costPerPage}`
-                      }
-                    </div>
-                    <p className="text-xs text-muted-foreground mt-1">operational cost</p>
-                  </CardContent>
-                </Card>
-
-                <Card>
-                  <CardHeader className="pb-3">
-                    <CardTitle className="text-sm font-medium flex items-center gap-2">
-                      <CheckCircle2 className="h-4 w-4 text-primary" />
-                      File Size Support
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="text-2xl font-bold text-sm">{tool.benchmarks.fileSize}</div>
-                    <p className="text-xs text-muted-foreground mt-1">optimal range</p>
-                  </CardContent>
-                </Card>
+                  <Card>
+                    <CardHeader className="pb-3">
+                      <CardTitle className="text-sm font-medium flex items-center gap-2">
+                        <CheckCircle2 className="h-4 w-4 text-primary" />
+                        File Size Support
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="text-2xl font-bold text-sm">{tool.benchmarks.fileSize}</div>
+                      <p className="text-xs text-muted-foreground mt-1">optimal range</p>
+                    </CardContent>
+                  </Card>
+                </div>
               </div>
-            </TabsContent>
 
-            <TabsContent value="sample" className="space-y-4 mt-6">
-              <div className="space-y-4">
+              <div className="col-span-1 md:col-span-1 flex flex-col gap-3">
+                <h1 className="text-2xl font-bold">Features</h1>
+                <div className="grid grid-cols-2 md:grid-cols-1 gap-3">
+                  {tool.features.map((feature, index) => (
+                    <div
+                      key={index}
+                      className="flex items-center gap-3 p-4 rounded-lg border bg-card"
+                    >
+                      <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0" />
+                      <span className="text-sm">{feature}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+            <div className="space-y-4">
+              <div>
+                <h3 className="font-semibold mb-2 flex items-center gap-2">
+                  <Badge>Test Document</Badge>
+                  {tool.sampleDocument.title}
+                </h3>
+                <p className="text-sm text-muted-foreground mb-3">{tool.sampleDocument.notes}</p>
+              </div>
+
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 <div>
-                  <h3 className="font-semibold mb-2 flex items-center gap-2">
-                    <Badge>Test Document</Badge>
-                    {tool.sampleDocument.title}
-                  </h3>
-                  <p className="text-sm text-muted-foreground mb-3">{tool.sampleDocument.notes}</p>
+                  <h4 className="text-sm font-semibold mb-3 text-muted-foreground">Original Text</h4>
+                  <div className="bg-muted p-4 rounded-lg max-h-96 overflow-y-auto">
+                    <pre className="text-xs whitespace-pre-wrap font-mono">
+                      {tool.sampleDocument.originalText}
+                    </pre>
+                  </div>
                 </div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                  <div>
-                    <h4 className="text-sm font-semibold mb-3 text-muted-foreground">Original Text</h4>
-                    <div className="bg-muted p-4 rounded-lg max-h-96 overflow-y-auto">
-                      <pre className="text-xs whitespace-pre-wrap font-mono">
-                        {tool.sampleDocument.originalText}
-                      </pre>
-                    </div>
-                  </div>
-
-                  <div>
-                    <h4 className="text-sm font-semibold mb-3 text-primary">Extracted Text</h4>
-                    <div className="bg-primary/5 border border-primary/20 p-4 rounded-lg max-h-96 overflow-y-auto">
-                      <pre className="text-xs whitespace-pre-wrap font-mono">
-                        {tool.sampleDocument.extractedText}
-                      </pre>
-                    </div>
+                <div>
+                  <h4 className="text-sm font-semibold mb-3 text-primary">Extracted Text</h4>
+                  <div className="bg-primary/5 border border-primary/20 p-4 rounded-lg max-h-96 overflow-y-auto">
+                    <pre className="text-xs whitespace-pre-wrap font-mono">
+                      {tool.sampleDocument.extractedText}
+                    </pre>
                   </div>
                 </div>
               </div>
-            </TabsContent>
+            </div>
 
-            <TabsContent value="features" className="mt-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                {tool.features.map((feature, index) => (
-                  <div 
-                    key={index} 
-                    className="flex items-center gap-3 p-4 rounded-lg border bg-card"
-                  >
-                    <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0" />
-                    <span className="text-sm">{feature}</span>
-                  </div>
-                ))}
-              </div>
-            </TabsContent>
-          </Tabs>
+          </div>
         </div>
       </div>
     </div>
